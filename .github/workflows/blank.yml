@@ -32,7 +32,7 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_REGION: "us-east-1"
         FROM_PATH: "./dist/"
-        DEST_PATH: "s3://my-world/"
+        DEST_PATH: "s3://a-my-world/"
         OPTIONS: "--acl public-read"     
     - name: Invalidate Cloudfront Distribution
       uses: awact/cloudfront-action@master
