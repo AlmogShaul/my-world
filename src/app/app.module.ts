@@ -15,12 +15,14 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {ChartsModule} from 'ng2-charts';
+import { MeComponent } from './me/me.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CompaniesComponent,
-    CoronaComponent
+    CoronaComponent,
+    MeComponent
   ],
   imports: [
     BrowserModule,
