@@ -14,6 +14,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
+import {ChartsModule} from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {MatInputModule} from '@angular/material/input';
     FormsModule,
     MatInputModule,
     ReactiveFormsModule,
-    LeafletModule.forRoot()
+    LeafletModule.forRoot(),
+    ChartsModule
   ],
   providers: [CoronaService],
   bootstrap: [AppComponent]

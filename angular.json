@@ -24,6 +24,11 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/cesium/Build/Cesium",
+                "output": "./assets/cesium"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
@@ -31,7 +36,8 @@
               "src/styles.less",
               "./node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -91,6 +97,11 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "./node_modules/cesium/Build/Cesium",
+                "output": "./assets/cesium"
+              },
+              {
+                "glob": "**/*",
                 "input": "./node_modules/leaflet/dist/images",
                 "output": "leaflet/"
               },
@@ -98,9 +109,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.less"
+               "src/styles.less"
             ],
-            "scripts": []
+            "scripts": [
+             ]
           }
         },
         "lint": {

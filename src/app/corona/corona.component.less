@@ -1,9 +1,27 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+.main{
+  height: 100%;
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+
+  .map-wrapper {
+    height: calc(100% - 120px);
+    .map {
+      height: 100%;
+      padding: 0;
+    }
+  }
+  .placeholder-wrapper{
+    display: flex;
+    margin-top: 100px;
+    justify-content: center;
+  }
+
 }
 
-.example-full-width {
-  width: 100%;
-}
