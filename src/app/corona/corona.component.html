@@ -1,6 +1,18 @@
 <div>
-  <p>Select Country</p>
-  <div *ngFor="let country of countries | async">
-    <p>{{country.Country}}</p>
-  </div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <input type="text"
+             placeholder="Select Country"
+             aria-label="Number"
+             matInput
+             [formControl]="myControl"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="countrySelected($event)">
+        <mat-option *ngFor="let country of filterCountries | async" [value]="country.Country">
+          {{country.Country}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
 </div>

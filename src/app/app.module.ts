@@ -11,6 +11,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CoronaComponent } from './corona/corona.component';
 import {CoronaService} from './corona/corona.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,10 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     FontAwesomeModule,
     MatSidenavModule,
+    MatAutocompleteModule,
+    FormsModule,
+    MatInputModule,
+    ReactiveFormsModule,
     LeafletModule.forRoot()
   ],
   providers: [CoronaService],
