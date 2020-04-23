@@ -20,23 +20,24 @@ export class CoronaComponent implements OnInit {
   public lineChartLabels: Label[];
   public lineChartOptions = {
     responsive: true,
+    maintainAspectRatio: false
   };
   public lineChartColors: Color[] = [
     {
       borderColor: 'black',
-      backgroundColor: '#f90003',
+      backgroundColor: 'rgba(255,0,0,0.3)',
     },
     {
       borderColor: 'black',
-      backgroundColor: '#c67600',
+      backgroundColor: 'rgba(255,255,0,0.3)',
     },
     {
       borderColor: 'black',
-      backgroundColor: '#7ec602',
+      backgroundColor: 'rgba(255,0,255,0.3)',
     },
     {
       borderColor: 'black',
-      backgroundColor: '#ebd901',
+      backgroundColor: 'rgba(60,0,100,0.3)',
     }
   ];
   public lineChartLegend = true;
@@ -91,6 +92,6 @@ export class CoronaComponent implements OnInit {
       {data: this.countryDays.map(d => d.deaths), label: 'Deaths'},
       {data: this.countryDays.map(d => d.recovered), label: 'Recovered'},
       {data: this.countryDays.map(d => d.active), label: 'Active'},
-    ];//;
+    ];
   }
 }

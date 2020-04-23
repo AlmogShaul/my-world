@@ -19,7 +19,7 @@
   </div>
   <div *ngIf="countryDays">
     <p>Got data from the last {{countryDays?.length}} days</p>
-    <canvas baseChart width="400" height="400"
+    <canvas baseChart height="300"
             [datasets]="lineChartData"
             [labels]="lineChartLabels"
             [options]="lineChartOptions"
