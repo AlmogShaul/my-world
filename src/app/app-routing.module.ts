@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {CoronaComponent} from './corona/corona.component';
-import {MeComponent} from './me/me.component';
+import {CoronaComponent} from './features/corona/corona.component';
+import {MeComponent} from './features/me/me.component';
 
 
 const routes: Routes = [

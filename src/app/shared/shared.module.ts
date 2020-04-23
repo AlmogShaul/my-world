@@ -1,26 +1,21 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {CoronaComponent} from './corona.component';
-import {MatSidenavModule} from '@angular/material/sidenav';
+import {AutocompleteComponent} from './autocomplete/autocomplete.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
-import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
-  declarations: [CoronaComponent],
+  declarations: [AutocompleteComponent],
   imports: [
     CommonModule,
-    MatSidenavModule,
-    MatAutocompleteModule,
     MatInputModule,
+    MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
-    ChartsModule
   ],
-  exports: [CoronaComponent]
+  exports: [AutocompleteComponent]
 })
-export class CoronaModule {
+export class SharedModule {
 }
-

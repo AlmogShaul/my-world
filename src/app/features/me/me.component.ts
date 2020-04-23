@@ -13,7 +13,7 @@ export class MeComponent implements OnInit {
       {imgName: 'code', footer: 'Code'},
       {imgName: 'eat', footer: 'Eat'},
       {imgName: 'fun', footer: 'Fun'},
-      {imgName: 'me2', footer: 'Shaul Almog'}
+      {imgName: 'me', footer: 'Shaul Almog'}
     ];
   }
 

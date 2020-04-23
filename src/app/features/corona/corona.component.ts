@@ -15,7 +15,6 @@ import {Color, Label} from 'ng2-charts';
 export class CoronaComponent implements OnInit {
   countries: any[];
   filterCountries: Observable<any[]>;
-  myControl = new FormControl();
   public lineChartData: ChartDataSets[];
   public lineChartLabels: Label[];
   public lineChartOptions = {
@@ -57,17 +56,9 @@ export class CoronaComponent implements OnInit {
     this.coronaService.getCountries().subscribe(result => {
       this.countries = result;
     });
-    this.filterCountries = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.countries ? this.countries.filter(option => option.Country.toLowerCase().includes(filterValue)) : null;
-  }
 
   countrySelected(selectedEvent: MatAutocompleteSelectedEvent) {
     this.selectedCountry = this.countries.find(c => c.Country === selectedEvent.option.value);

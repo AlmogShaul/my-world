@@ -7,19 +7,20 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CoronaService} from './corona/corona.service';
+import {CoronaService} from './features/corona/corona.service';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {ChartsModule} from 'ng2-charts';
-import {CoronaModule} from './corona/corona.module';
-import {MeModule} from './me/me.module';
+import {CoronaModule} from './features/corona/corona.module';
+import {MeModule} from './features/me/me.module';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent
-      ],
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -27,16 +28,17 @@ import {MeModule} from './me/me.module';
     AppRoutingModule,
     FontAwesomeModule,
     MatSidenavModule,
-    MatAutocompleteModule,
-    FormsModule,
     MeModule,
     CoronaModule,
     MatInputModule,
-    ReactiveFormsModule,
     LeafletModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    CoreModule
   ],
-  providers: [CoronaService],
+  providers: [],
+  exports: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
