@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {MeSectionModel} from './models/me-section';
 
 @Component({
   selector: 'app-me',
@@ -6,7 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./me.component.less']
 })
 export class MeComponent implements OnInit {
-  sections: any[];
+  sections: MeSectionModel[];
 
   constructor() {
     this.sections = [
