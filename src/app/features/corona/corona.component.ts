@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
 import {CoronaService} from './corona.service';
-import {FormControl} from '@angular/forms';
-import {map, startWith} from 'rxjs/operators';
 import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
-import {ChartDataSets, ChartOptions} from 'chart.js';
+import {ChartDataSets} from 'chart.js';
 import {Color, Label} from 'ng2-charts';
+import {CountryDto} from './dtos/country';
+import {CountryModel} from './models/country';
+import {DayStatusModel} from './models/day-status';
 
 @Component({
   selector: 'app-corona',
@@ -13,8 +14,7 @@ import {Color, Label} from 'ng2-charts';
   styleUrls: ['./corona.component.less']
 })
 export class CoronaComponent implements OnInit {
-  countries: any[];
-  filterCountries: Observable<any[]>;
+  countries: CountryModel[];
   public lineChartData: ChartDataSets[];
   public lineChartLabels: Label[];
   public lineChartOptions = {
@@ -41,10 +41,12 @@ export class CoronaComponent implements OnInit {
   ];
   public lineChartLegend = true;
   public lineChartType = 'line';
-  public lineChartPlugins = [];
+  private selectedCountry: CountryModel;
+  countryDays: DayStatusModel[];
 
-  private selectedCountry: any;
-  countryDays: any[];
+  trackByName(index: number, item: any) {
+    return item.Country;
+  }
 
   constructor(private coronaService: CoronaService) {
 
@@ -53,16 +55,21 @@ export class CoronaComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.coronaService.getCountries().subscribe(result => {
-      this.countries = result;
+    this.coronaService.getCountries().subscribe((result: CountryDto[]) => {
+      this.countries = result.map((x: CountryDto) => {
+          return {
+            name: x.Country, code: x.ISO2
+          };
+        }
+      );
     });
 
   }
 
 
   countrySelected(selectedEvent: MatAutocompleteSelectedEvent) {
-    this.selectedCountry = this.countries.find(c => c.Country === selectedEvent.option.value);
-    this.coronaService.getCountryData(this.selectedCountry.ISO2).subscribe(result => {
+    this.selectedCountry = this.countries.find(c => c.name === selectedEvent.option.value);
+    this.coronaService.getCountryData(this.selectedCountry.code).subscribe(result => {
       this.countryDays = result.map((day: any) => {
         return {
           confirmed: day.Confirmed,
@@ -70,7 +77,7 @@ export class CoronaComponent implements OnInit {
           recovered: day.Recovered,
           active: day.Active,
           date: new Date(day.Date)
-        };
+        } as DayStatusModel;
       });
       this.lineChartLabels = this.countryDays.map(d => d.date.getMonth() + 1 + '/' + d.date.getDate());
       this.lineChartData = this.buildChartData();

@@ -1,9 +1,9 @@
 <div class="main">
-  <app-autocomplete [items]="countries" [searchField]="'Country'"
+  <app-autocomplete [items]="countries" [searchField]="'name'"
                     (valueSelected)="countrySelected($event)"></app-autocomplete>
+
   <div class="placeholder-wrapper" *ngIf="!countryDays">
-    <img data-imageid="6097638" class="responsive aligncenter"
-         src="https://cdn.clipart.email/c9b03acad47be6dce5b252f334af3ea2_great-earth-gif-animations-at-best-animations_300-300.gif">
+    <img src="https://cdn.clipart.email/c9b03acad47be6dce5b252f334af3ea2_great-earth-gif-animations-at-best-animations_300-300.gif">
   </div>
   <div *ngIf="countryDays">
     <p>Got data from the last {{countryDays?.length}} days</p>
