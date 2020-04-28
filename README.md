@@ -1,7 +1,11 @@
 ![Node CI](https://github.com/AlmogShaul/my-world/workflows/Node%20CI/badge.svg)
 # Myworld
 
-Site: http://d3vfhgs459a4y.cloudfront.net
+Webite: http://d3vfhgs459a4y.cloudfront.net
+
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.
 
