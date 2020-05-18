@@ -14,7 +14,7 @@ export class MeComponent implements OnInit {
       {imgName: 'code', footer: 'Code'},
       {imgName: 'eat', footer: 'Eat'},
       {imgName: 'fun', footer: 'Fun'},
-      {imgName: 'me', footer: 'Shaul Almog'}
+      {imgName: 'me', footer: 'Me'}
     ];
   }
 
